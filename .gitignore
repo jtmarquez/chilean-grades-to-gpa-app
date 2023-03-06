@@ -1,0 +1,28 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+src/test/screenshots
+src/test/videos
+
+# production
+/build
+
+# dotenv environment variables file
+.env*.local
+
+# misc
+.DS_Store
+
+npm-debug.log*
+
+
+# tailwind build
+*.output.css 
+
+cdk.out
