@@ -28,6 +28,7 @@
   "include": [
     "./src",
     "./webpack.config.ts",
-    "./styles.d.ts",
+    "declarations/styles.d.ts",
+    "declarations/svgs.d.ts",
   ]
 }

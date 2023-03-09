@@ -1,0 +1,20 @@
+export default {
+  title: 'Transforma aquí tus notas chilenas a GPA! :)',
+  textAreaPlaceHolder: 'Ingresa tus notas separadas por punto comas o por espacios. ',
+  calculateGpaAction: 'Calcular GPA',
+  yourCalculatedGpa: 'Tu GPA calculado es: ',
+  calculateAnotherGpaAction: 'Calcular otro GPA',
+  cachedNotesQuestion: 'Detectamos que ya tenias notas guardadas, ¿Quieres usarlas?',
+  iWantToUseCache: 'Quiero usar mis notas',
+  iDontWantToUseCache: 'No, quiero ingresar mis notas',
+  usingTheFollowingGrades: 'Usando las siguientes notas',
+  chileanGradeRangeLabel: 'Rango en notas chilenas',
+  gpaEquivalentLabel: 'Equivalente en GPA',
+  howDoWeCalculate: 'Cómo lo calculamos?',
+  calculationExplanation: 'Utilizamos la siguiente escala de notas:',
+  selectUploadFile: 'Sube tu pdf de seguimiento curricular (uc)',
+  uploading: 'Subiendo...',
+  uploadFile: 'Subir archivo',
+  liabilityText:
+    'Los resultados mostrados en esta página no son oficiales, por lo que no nos hacemos responsables por el uso que le des a esta aplicación.',
+};

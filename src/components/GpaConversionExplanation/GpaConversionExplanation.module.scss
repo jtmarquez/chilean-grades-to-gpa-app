@@ -1,0 +1,18 @@
+@import '../../assets/globalStyles/index.scss';
+
+.HowIsCalculationMadeTitle {
+  margin-bottom: 2%;
+}
+.CalculationExplanation {
+  margin-bottom: 2%;
+}
+
+@media only screen and (max-width: $md) {
+  .ConversionTableContainer {
+    margin-top: 5%;
+  }
+}
+
+.LiabilityTextContainer {
+  margin-top: 5%;
+}

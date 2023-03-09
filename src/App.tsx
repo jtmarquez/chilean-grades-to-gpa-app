@@ -1,6 +1,8 @@
 import React from 'react';
-import HelloWorld from 'components/HelloWorld';
+import RoutesProviderWrapper from './routes/RoutesProviderWrapper';
 
-const App = () => <HelloWorld />;
+const App = () => {
+  return <RoutesProviderWrapper />;
+};
 
 export default App;

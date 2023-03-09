@@ -1,0 +1,66 @@
+@import '../../../assets/globalStyles/index.scss';
+
+.MainContainer {
+  background-color: red;
+}
+
+.Layout {
+  min-height: "100vh";
+}
+
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .ContactMeSubtitle {
+    margin-top: 1%;
+  }
+}
+
+.MenuItem {
+  float: right;
+  color: $colors-black;
+}
+
+.AppNameMenuItem {
+  background-color: $colors-grey;
+  color: $colors-dark-blue !important;
+}
+.AppNameMenuItem:hover {
+  color: $colors-grey !important;
+}
+
+.Menu {
+  background-color: $colors-light-blue;
+  display: block;
+  :global {
+    .ant-menu-item-selected {
+      color: $colors-black !important;
+      background-color: $colors-light-green !important;
+    }
+    .ant-menu-item-active::after{
+      color: red !important;
+      border-bottom-color: $colors-grey !important;
+    }
+    .ant-menu-item-selected::after{
+      border-bottom-color: $colors-dark-blue !important;
+    }
+  }
+}
+
+.Header {
+  background-color: $colors-light-blue;
+  height: 10% !important;
+}
+
+.Content {
+  padding: 2%;
+  background-color: $colors-white;
+}
+
+.LinkedinLogoContainer {
+  align-items: center;
+  display: flex;
+  gap: 5%;
+}
