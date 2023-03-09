@@ -5,18 +5,23 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 import DotenvWebpackPlugin from "dotenv-webpack";
 
-const webpackConfig = (env): Configuration => ({
+interface WebpackConfig extends Configuration {
+    devServer?: {historyApiFallback: boolean}
+}
+
+const webpackConfig = (env): WebpackConfig => ({
     entry: "./src/index.tsx",
     ...(env.production || !env.development ? {} : {devtool: "eval-source-map"}),
     resolve: {
-        extensions: [".ts", ".tsx", ".js"],
+        extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
         //TODO waiting on https://github.com/dividab/tsconfig-paths-webpack-plugin/issues/61
         //@ts-ignore
         plugins: [new TsconfigPathsPlugin()]
     },
     output: {
         path: path.join(__dirname, "/dist"),
-        filename: "build.js"
+        filename: "build.js",
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -27,12 +32,29 @@ const webpackConfig = (env): Configuration => ({
                     transpileOnly: true
                 },
                 exclude: /dist/
-            }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  "style-loader",
+                  // Translates CSS into CommonJS
+                  "css-loader",
+                  // Compiles Sass to CSS
+                  "sass-loader",
+                ],
+            },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ["@svgr/webpack"],
+              },
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./public/index.html"
+            template: "./public/index.html",
+            publicPath: "/",
         }),
         new webpack.DefinePlugin({
             "process.env.PRODUCTION": env.production || !env.development,
@@ -46,7 +68,10 @@ const webpackConfig = (env): Configuration => ({
     ],
     watchOptions: {
         ignored: /node_modules/,
-    }
+    },
+    devServer: {
+        historyApiFallback: true,
+    },
 });
 
 export default webpackConfig;

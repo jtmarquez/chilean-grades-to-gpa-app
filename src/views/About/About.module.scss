@@ -1,0 +1,26 @@
+@import '../../assets/globalStyles/';
+
+.AboutContainer {
+  padding: 3%;
+  background-color: $colors-grey;
+  border-radius: 10px;
+}
+
+.ImgContainer {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+}
+
+.InfoContainer {
+  margin-top: 5%;
+}
+
+.Descriptions {
+  h3 {
+    margin-bottom: 2%;
+  }
+  h3:nth-last-of-type(-n+2) {
+    margin-top: 2%;
+  }
+}
