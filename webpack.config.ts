@@ -63,7 +63,7 @@ const webpackConfig = (env): WebpackConfig => ({
         }),
         new ForkTsCheckerWebpackPlugin(),
         new DotenvWebpackPlugin({
-            path: env.production ? "./.env.prod" : "./.env.local",
+            path: env.production ? "./.env" : "./.env.local",
         }),
     ],
     watchOptions: {
