@@ -10,13 +10,14 @@ interface Props {
 }
 const MyGpaMenu: FC<Props> = (props: Props) => {
   const { gpa, prettiefiedNotes, handleClearGpa } = props;
+  const roundedGpa = Math.round(gpa * 100) / 100;
 
   return (
     <div>
       <div className={styles.YourGpaBox}>
         <h3>{translate('home.yourCalculatedGpa')}</h3>
         <Row justify="center" align="middle">
-          <p className={styles.GpaText}>{gpa}</p>
+          <p className={styles.GpaText}>{roundedGpa}</p>
         </Row>
       </div>
       <div className={styles.CurrentGpaNotesContainer}>
