@@ -14,6 +14,7 @@ const useGpaFromGradesFile = () => {
           'Content-Type': 'multipart/form-data',
         },
       };
+      console.log(process.env);
       const url = `${process.env.API_URL}/api/transform/`;
       const data = await axios.post(url, formData, requestOptions);
       const parsedData = JSON.parse(data.data);
