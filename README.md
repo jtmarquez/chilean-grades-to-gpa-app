@@ -1,5 +1,5 @@
-# typescript-react-template
-A template for a typescript-webpack-react app.
+# An app for calculating your gpa from chilean grades!
+Easily transform your chilean grades to gpa. If you are a student from Universidad Catolica you can even use your curricular file to effortesly get your average gpa.
 
 ## Scripts:
 `start`: run locally
