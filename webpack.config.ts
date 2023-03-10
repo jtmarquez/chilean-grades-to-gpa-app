@@ -3,7 +3,7 @@ import webpack, {Configuration} from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
-import DotEnv from "dotenv-webpack";
+import DotenvWebpackPlugin from "dotenv-webpack";
 
 interface WebpackConfig extends Configuration {
     devServer?: {historyApiFallback: boolean}
@@ -62,7 +62,7 @@ const webpackConfig = (env): WebpackConfig => ({
             "process.env.VERSION": JSON.stringify(require("./package.json").version)
         }),
         new ForkTsCheckerWebpackPlugin(),
-        new DotEnv({
+        new DotenvWebpackPlugin({
             ignoreStub: env.production ? true : false,
             path: env.production ? "./.env" : "./.env.local",
         }),
