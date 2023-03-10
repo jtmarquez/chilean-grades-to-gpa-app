@@ -1,7 +1,7 @@
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Upload, UploadFile, UploadProps } from 'antd';
 import { RcFile } from 'antd/es/upload';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import useGpaFromGradesFile from 'src/hooks/useGpaFromGradesFile';
 import translate from 'src/translate';
 
@@ -13,7 +13,7 @@ const UploadNotesButton: FC<Props> = (props: Props) => {
   const { handleOnChangeNotes } = props;
   const [file, setFile] = useState<UploadFile | undefined>();
   const [uploading, setUploading] = useState(false);
-  const { getGpaFromGrades, notes, error } = useGpaFromGradesFile();
+  const { getGpaFromGrades } = useGpaFromGradesFile();
   const showSelectFilesButton = !file;
 
   const uploadProps: UploadProps = {

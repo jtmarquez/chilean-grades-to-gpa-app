@@ -3,11 +3,12 @@ import webpack, {Configuration} from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
-import DotenvWebpackPlugin from "dotenv-webpack";
 
 interface WebpackConfig extends Configuration {
     devServer?: {historyApiFallback: boolean}
 }
+
+require('dotenv').config({ path: './.env' }); 
 
 const webpackConfig = (env): WebpackConfig => ({
     entry: "./src/index.tsx",
@@ -57,14 +58,12 @@ const webpackConfig = (env): WebpackConfig => ({
             publicPath: "/",
         }),
         new webpack.DefinePlugin({
+            "process.env": JSON.stringify(process.env),
             "process.env.PRODUCTION": env.production || !env.development,
             "process.env.NAME": JSON.stringify(require("./package.json").name),
             "process.env.VERSION": JSON.stringify(require("./package.json").version)
         }),
         new ForkTsCheckerWebpackPlugin(),
-        new DotenvWebpackPlugin({
-            path: env.production ? "./.env" : "./.env.local",
-        }),
     ],
     watchOptions: {
         ignored: /node_modules/,
